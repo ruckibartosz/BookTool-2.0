@@ -1,9 +1,5 @@
-import { DB_HOST, DB_PORT, DB_DATABASE } from '@config';
+import { DB_HOST, DB_PASSWORD, DB_DATABASE } from '@config';
 
 export const dbConnection = {
-  url: `mongodb://${DB_HOST}:${DB_PORT}/${DB_DATABASE}`,
-  options: {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  },
+  url: `mongodb+srv://${DB_HOST}:${DB_PASSWORD}@${DB_DATABASE}.mongodb.net/?retryWrites=true&w=majority`,
 };

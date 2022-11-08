@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { BrowserRouter as Router } from 'react-router-dom'
-import NotFoundPage from '../../pages/NotFoundPage'
+import NotFoundPage from '@Pages/NotFound'
 
 test('renders error message', () => {
     render(

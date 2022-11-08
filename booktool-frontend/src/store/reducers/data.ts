@@ -1,5 +1,5 @@
-import { ReducerData, ReduxActionData } from '../../types/reducers'
-import { DATA_ACTIONS } from '../actions/data'
+import { ReducerData, ReduxActionData } from '@/Types/reducers'
+import { DATA_ACTIONS } from '@/Store/Actions/data'
 
 const initialState: ReducerData = {
     contents: []

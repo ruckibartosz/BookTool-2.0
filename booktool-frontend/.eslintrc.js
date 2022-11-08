@@ -21,7 +21,7 @@ module.exports = {
         'no-unused-vars': 'off',
         'react/prop-types': 0,
         '@typescript-eslint/camelcase': 0,
-        '@typescript-eslint/no-unused-vars': 1,
+        '@typescript-eslint/no-unused-vars': 'error',
         '@typescript-eslint/no-use-before-define': 0,
         '@typescript-eslint/ban-ts-comment': 0,
         '@typescript-eslint/ban-ts-ignore': 0,

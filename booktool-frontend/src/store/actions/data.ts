@@ -1,4 +1,4 @@
-import { ReduxAction } from '../../types/reducers'
+import { ReduxAction } from '@/Types/reducers';
 
 export enum DATA_ACTIONS {
     SET_CONTENTS = 'dataActions/setContents'
