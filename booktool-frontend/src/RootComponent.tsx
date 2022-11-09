@@ -18,14 +18,24 @@ const RootComponent: React.FC = () => {
         <Router>
             <Routes>
                 <Route path="*" element={<NotFound />} />
-                <Route path={ROUTES.HOMEPAGE_ROUTE} element={<Home />} />
+                <Route path={ROUTES.HOMEPAGE_ROUTE} element={<Home />}>
+                    <Route path={ROUTES.DASHBOARD_ROUTE} element={<p>dashboard</p>} />
+                    <Route path={ROUTES.CALENDAR_ROUTE} element={<p>dashboard</p>} />
+                    <Route path={ROUTES.MAILS_ROUTE} element={<p>dashboard</p>} />
+                    <Route path={ROUTES.CLIENTS_ROUTE} element={<p>dashboard</p>} />
+                    <Route path={ROUTES.SETTINGS_ROUTE} element={<p>dashboard</p>} />
+                    <Route path={ROUTES.INFORMATION_ROUTE} element={<p>dashboard</p>} />
+                    <Route path={ROUTES.CONNECTION_ROUTE} element={<p>dashboard</p>} />
+                </Route>
                 <Route
                     path={ROUTES.LOGIN_ROUTE}
                     element={<Login leftPanel={<LoginLeftPanel />} rightPanel={<LoginRightPanel />} />}
                 />
                 <Route
                     path={ROUTES.REGISTER_ROUTE}
-                    element={<Register leftPanel={<RegisterLeftPanel />} rightPanel={<RegisterRightPanel />} />}
+                    element={
+                        <Register leftPanel={<RegisterLeftPanel />} rightPanel={<RegisterRightPanel />} />
+                    }
                 />
             </Routes>
         </Router>
