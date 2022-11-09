@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Box } from "@chakra-ui/react";
 
 import { ROUTES } from '@Constants/routes.constants';
 import Login from '@Pages/Login';
@@ -19,7 +20,7 @@ const RootComponent: React.FC = () => {
             <Routes>
                 <Route path="*" element={<NotFound />} />
                 <Route path={ROUTES.HOMEPAGE_ROUTE} element={<Home />}>
-                    <Route path={ROUTES.DASHBOARD_ROUTE} element={<p>dashboard</p>} />
+                    <Route path={ROUTES.DASHBOARD_ROUTE} element={<Box>dashboard</Box>} />
                     <Route path={ROUTES.CALENDAR_ROUTE} element={<p>dashboard</p>} />
                     <Route path={ROUTES.MAILS_ROUTE} element={<p>dashboard</p>} />
                     <Route path={ROUTES.CLIENTS_ROUTE} element={<p>dashboard</p>} />

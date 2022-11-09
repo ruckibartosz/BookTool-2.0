@@ -16,7 +16,7 @@ import { HiOutlineUserCircle } from 'react-icons/hi';
 
 const Sidebar: React.FC = () => {
     return (
-        <Box bgColor="primary.first" h="100vh" w="90px" p="10px 0">
+        <Box bgColor="primary.first" h="100vh" w="full" p="10px 0" shadow="md" zIndex={99}>
             <Stack direction="column" spacing="20px" alignItems="center" h="full">
                 <Box
                     as="button"
