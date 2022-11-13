@@ -12,9 +12,13 @@ import {
 import { BiChevronRight, BiDotsHorizontalRounded } from 'react-icons/bi';
 import { SlReload } from 'react-icons/sl';
 import { AiOutlineLogout, AiOutlinePlus, AiOutlineCheckCircle } from 'react-icons/ai';
+
+import useCreationWizardModal from "@Components/CreationWizardModal/useCreationWizardModal";
 import SearchBar from '@Components/SearchBar';
 
+
 const Navbar: React.FC = () => {
+    const { onOpen } = useCreationWizardModal();
     return (
         <HStack p="22px" w="full" h="full" justifyContent="space-between" shadow="md" zIndex={100}>
             <Box>
@@ -66,6 +70,7 @@ const Navbar: React.FC = () => {
                         colorScheme="purple"
                         color="white"
                         variant="solid"
+                        onClick={onOpen}
                     >
                         Dodaj
                     </Button>
