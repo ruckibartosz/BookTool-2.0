@@ -9,6 +9,8 @@ const theme = extendTheme({
         primary: {
             first: '#1A0053',
             second: '#7642EB',
+            firstAlpha10: 'rgba(118, 66, 235, 0.10)',
+            firstAlpha15: 'rgba(118, 66, 235, 0.15)',
             firstAlpha35: 'rgba(118, 66, 235, 0.35)',
             firstAlpha60: 'rgba(118, 66, 235, 0.60)',
         },

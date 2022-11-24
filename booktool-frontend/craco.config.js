@@ -15,8 +15,8 @@ module.exports = {
             "@Test": path.resolve(__dirname, "src/Test"),
             "@Utils": path.resolve(__dirname, "src/Utils"),
             "@Types": path.resolve(__dirname, "src/Types"),
-            "@Actions": path.resolve(__dirname, "src/store/Actions"),
-            "@Reducers": path.resolve(__dirname, "src/store/Reducers"),
+            "@Actions": path.resolve(__dirname, "src/Store/Actions"),
+            "@Slices": path.resolve(__dirname, "src/Store/Slices"),
         },
     },
 };

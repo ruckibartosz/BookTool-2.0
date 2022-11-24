@@ -28,7 +28,7 @@ const CreationWizardModal: React.FC = () => {
             <Modal closeOnOverlayClick={false} isOpen={true} onClose={onClose} size="xl">
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader textAlign="center">Wybierz co chciałbyś utworzyć</ModalHeader>
+                    <ModalHeader textAlign="center">Wybierz, co chciałbyś utworzyć</ModalHeader>
                     <Text textAlign="center" fontSize="xs" color="gray.500" mt="-8px" mb="12px">
                         Naciśnij na jedną z kategorii poniżej
                     </Text>

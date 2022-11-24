@@ -1,0 +1,23 @@
+.sideContext {
+    z-index: 1;
+
+    &-enter {
+        left: -290px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &-enter-active, &-enter-done {
+        left: 0;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &-exit {
+        left: 0;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &-exit-active, &-exit-done {
+        left: -290px;
+        transition: all 0.3s ease-in-out;
+    }
+}

@@ -34,7 +34,7 @@
       "@Utils/*": ["Utils/*"],
       "@Types/*": ["Types/*"],
       "@Actions/*": ["Store/Actions/*"],
-      "@Reducers/*": ["Store/Reducers/*"],
+      "@Slices/*": ["Store/Slices/*"],
     }
   },
   "include": [
