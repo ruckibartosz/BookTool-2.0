@@ -7,7 +7,7 @@ interface IDisplayPayloadAction {
 }
 
 const initialState = {
-    isActive: true,
+    isActive: false,
     renderType: 'clients'
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box } from '@chakra-ui/react';
 
+import useAppSelector from '@Hooks/useAppSelector';
 import SideContextHideShowButton from './SideContextHideShowButton';
 
 interface IProps {
@@ -8,6 +9,7 @@ interface IProps {
 }
 
 const SideContextBody: React.FC<IProps> = ({ children }) => {
+    const { isActive } = useAppSelector(state => state.sideContext);
     return (
         <Box
             w="320px"
@@ -19,6 +21,8 @@ const SideContextBody: React.FC<IProps> = ({ children }) => {
             p="28px"
             pt="22px"
             boxShadow="base"
+            left={isActive ? "0" : "-290px"}
+            transition="all 0.3s ease-in-out"
         >
             <SideContextHideShowButton />
             {children}
