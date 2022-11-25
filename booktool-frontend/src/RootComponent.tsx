@@ -12,6 +12,13 @@ import Home from '@Pages/Home';
 import Dashboard from '@Pages/Dashboard';
 import Calendar from '@Pages/Calendar';
 import NotFound from '@Pages/NotFound';
+import Mails from '@Pages/Mails';
+import Clients from '@Pages/Clients';
+import Settings from '@Pages/Settings';
+import Information from '@Pages/Information';
+import Connection from '@Pages/Connection';
+import Apartments from '@Pages/Apartments';
+import Profile from '@Pages/Profile';
 
 import '@Styles/main.scss';
 
@@ -23,11 +30,13 @@ const RootComponent: React.FC = () => {
                 <Route path={ROUTES.HOMEPAGE_ROUTE} element={<Home />}>
                     <Route path={ROUTES.DASHBOARD_ROUTE} element={<Dashboard />} />
                     <Route path={ROUTES.CALENDAR_ROUTE} element={<Calendar />} />
-                    <Route path={ROUTES.MAILS_ROUTE} element={<p>dashboard</p>} />
-                    <Route path={ROUTES.CLIENTS_ROUTE} element={<p>dashboard</p>} />
-                    <Route path={ROUTES.SETTINGS_ROUTE} element={<p>dashboard</p>} />
-                    <Route path={ROUTES.INFORMATION_ROUTE} element={<p>dashboard</p>} />
-                    <Route path={ROUTES.CONNECTION_ROUTE} element={<p>dashboard</p>} />
+                    <Route path={ROUTES.MAILS_ROUTE} element={<Mails />} />
+                    <Route path={ROUTES.CLIENTS_ROUTE} element={<Clients />} />
+                    <Route path={ROUTES.APARTMENTS_ROUTE} element={<Apartments />} />
+                    <Route path={ROUTES.SETTINGS_ROUTE} element={<Settings />} />
+                    <Route path={ROUTES.INFORMATION_ROUTE} element={<Information />} />
+                    <Route path={ROUTES.CONNECTION_ROUTE} element={<Connection />} />
+                    <Route path={ROUTES.PROFILE_ROUTE} element={<Profile />} />
                 </Route>
                 <Route
                     path={ROUTES.LOGIN_ROUTE}

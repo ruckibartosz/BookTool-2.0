@@ -1,5 +1,5 @@
 import React from 'react';
-import { BiBookOpen } from 'react-icons/bi';
+import { BiBookOpen, BiErrorAlt } from 'react-icons/bi';
 import { BsLightbulb } from 'react-icons/bs';
 import { HiOutlineInformationCircle } from 'react-icons/hi';
 
@@ -18,6 +18,9 @@ const SideContextInformation: React.FC = () => {
                 </SideContextButton>
                 <SideContextButton icon={<BsLightbulb color="primary.first" size={20} />}>
                     Najnowsze aktualizację
+                </SideContextButton>
+                <SideContextButton icon={<BiErrorAlt color="primary.first" size={20} />}>
+                    Zgłoś błąd
                 </SideContextButton>
                 <SideContextButton icon={<HiOutlineInformationCircle color="primary.first" size={20} />}>
                     O programie

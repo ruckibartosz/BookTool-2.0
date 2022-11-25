@@ -14,7 +14,7 @@ const SideContext: React.FC = () => {
 
     const renderSideContextType = () => {
         switch (renderType) {
-            case 'mail':
+            case 'mails':
                 return <SideContextMail />;
             case 'apartments':
                 return <SideContextApartments />;

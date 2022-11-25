@@ -14,11 +14,11 @@ const SideContextClients: React.FC = () => {
         <SideContextBody>
             <SideContextSection>
                 <SideContextHeader>Wyświetlanie</SideContextHeader>
-                <SideContextButton icon={<BsGrid3X3 color="primary.first" size={20} />}>
-                    Wyświetl jako kafelki
-                </SideContextButton>
                 <SideContextButton icon={<AiOutlineUnorderedList color="primary.first" size={20} />}>
                     Wyświetl jako listę
+                </SideContextButton>
+                <SideContextButton icon={<BsGrid3X3 color="primary.first" size={20} />}>
+                    Wyświetl jako kafelki
                 </SideContextButton>
             </SideContextSection>
             <SideContextSection>

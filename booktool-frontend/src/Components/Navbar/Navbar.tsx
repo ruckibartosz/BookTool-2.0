@@ -13,12 +13,15 @@ import { BiChevronRight, BiDotsHorizontalRounded } from 'react-icons/bi';
 import { SlReload } from 'react-icons/sl';
 import { AiOutlineLogout, AiOutlinePlus, AiOutlineCheckCircle } from 'react-icons/ai';
 
+import useNavbar from './useNavbar';
 import useCreationWizardModal from "@Components/CreationWizardModal/useCreationWizardModal";
 import SearchBar from '@Components/SearchBar';
 
 
 const Navbar: React.FC = () => {
+    const { translatedNavbarHeader } = useNavbar();
     const { onOpen } = useCreationWizardModal();
+
     return (
         <HStack p="22px" w="full" h="full" justifyContent="space-between" shadow="md" zIndex={100}>
             <Box>
@@ -41,7 +44,7 @@ const Navbar: React.FC = () => {
                 </Breadcrumb>
                 <Box>
                     <Heading fontSize="2xl" fontWeight="semibold">
-                        Panel sterowania
+                        {translatedNavbarHeader}
                     </Heading>
                 </Box>
             </Box>

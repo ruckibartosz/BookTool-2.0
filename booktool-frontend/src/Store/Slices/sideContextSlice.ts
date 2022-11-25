@@ -8,7 +8,8 @@ interface IDisplayPayloadAction {
 
 const initialState = {
     isActive: false,
-    renderType: 'clients'
+    renderType: 'apartments',
+    isLoading: false
 };
 
 export const sideContextSlice = createSlice({
@@ -24,6 +25,14 @@ export const sideContextSlice = createSlice({
         changeRenderType: (state, action: PayloadAction<IDisplayPayloadAction>) => {
             const { payload } = action;
             state.renderType = payload.renderType;
+        }
+    },
+    extraReducers: {
+        ['sideContext/changeType/pending']: (state) => {
+            state.isLoading = true;
+        },
+        ['sideContext/changeType/fulfilled']: (state) => {
+            state.isLoading = false;
         }
     }
 });

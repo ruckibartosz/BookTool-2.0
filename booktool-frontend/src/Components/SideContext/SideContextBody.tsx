@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const SideContextBody: React.FC<IProps> = ({ children }) => {
-    const { isActive } = useAppSelector(state => state.sideContext);
+    const { isActive } = useAppSelector((state) => state.sideContext);
     return (
         <Box
             w="320px"
@@ -21,10 +21,11 @@ const SideContextBody: React.FC<IProps> = ({ children }) => {
             p="28px"
             pt="22px"
             boxShadow="base"
-            left={isActive ? "0" : "-290px"}
+            left={isActive ? '0' : '-290px'}
             transition="all 0.3s ease-in-out"
         >
             <SideContextHideShowButton />
+
             {children}
         </Box>
     );

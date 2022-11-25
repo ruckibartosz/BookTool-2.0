@@ -10,5 +10,6 @@ export const ROUTES = {
     CLIENTS_ROUTE: '/clients',
     SETTINGS_ROUTE: '/settings',
     INFORMATION_ROUTE: '/information',
-    CONNECTION_ROUTE: '/connection'
+    CONNECTION_ROUTE: '/connection',
+    PROFILE_ROUTE: '/profile',
 };
