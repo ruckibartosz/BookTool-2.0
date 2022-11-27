@@ -13,7 +13,7 @@ const SideContextConnection: React.FC = () => {
             <SideContextSection>
                 <SideContextHeader>Połącz się z</SideContextHeader>
                 <SideContextButton icon={<SiGooglecalendar color="primary.first" size={20} />}>
-                    Kalendarz google
+                    Kalendarz Google
                 </SideContextButton>
                 <SideContextButton icon={<TbBrandBooking color="primary.first" size={20} />}>
                     Booking.com
@@ -22,7 +22,7 @@ const SideContextConnection: React.FC = () => {
             <SideContextSection>
                 <SideContextHeader>Usuń synchronizację</SideContextHeader>
                 <SideContextButton icon={<SiGooglecalendar color="primary.first" size={20} />}>
-                    Kalendarz google
+                    Kalendarz Google
                 </SideContextButton>
                 <SideContextButton icon={<TbBrandBooking color="primary.first" size={20} />}>
                     Booking.com

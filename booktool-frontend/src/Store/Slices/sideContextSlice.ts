@@ -8,7 +8,7 @@ interface IDisplayPayloadAction {
 
 const initialState = {
     isActive: false,
-    renderType: 'apartments',
+    renderType: 'dashboard',
     isLoading: false
 };
 

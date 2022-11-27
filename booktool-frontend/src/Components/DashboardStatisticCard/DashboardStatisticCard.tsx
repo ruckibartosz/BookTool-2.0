@@ -63,7 +63,7 @@ const DashboardStatisticCard: React.FC<IProps> = ({
     ];
 
     return (
-        <Box h="full" w="full" rounded="lg" border="1px solid" borderColor="gray.200" boxShadow="sm" p="20px">
+        <Box h="full" w="full" rounded="lg" border="1px solid" borderColor="gray.200" boxShadow="sm" p="20px" overflow="hidden">
             <VStack h="full" w="full" alignItems="center" justifyContent="center" spacing="24px">
                 <Box w="full" borderBottom="1px solid" borderColor="gray.200" pb="20px">
                     <HStack w="full" justifyContent="space-around">
