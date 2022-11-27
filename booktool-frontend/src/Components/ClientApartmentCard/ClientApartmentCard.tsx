@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ClientApartmentCardBody from './ClientApartmentCardBody';
+import ClientApartmentCardMenu from './ClientApartmentCardMenu';
 import ClientApartmentCardAvatar from './ClientApartmentCardAvatar';
 import ClientApartmentCardHeading from './ClientApartmentCardHeading';
 import ClientApartmentCardDetails from './ClientApartmentCardDetails';
@@ -15,6 +16,7 @@ type Props = {
 const ClientApartmentCard: React.FC<Props> = ({ variant, heading, firstColumnData, secondColumnData }) => {
     return (
         <ClientApartmentCardBody>
+            <ClientApartmentCardMenu />
             <ClientApartmentCardAvatar variant={variant} />
             <ClientApartmentCardHeading heading={heading} />
             <ClientApartmentCardDetails variant={variant} data={[firstColumnData, secondColumnData]} />

@@ -5,7 +5,7 @@ import useAppSelector from '@Hooks/useAppSelector';
 import { changeType } from '@Actions/context';
 import { changeSideContextType } from '@Actions/sideContext';
 import { ContextType } from '@Types/context';
-import { SideContextRenderType } from '@Types/sideContext';
+import { SideContextType } from '@Types/sideContext';
 
 const useSidebar = () => {
     const navigate = useNavigate();
@@ -17,7 +17,7 @@ const useSidebar = () => {
             navigate(`/${context}`);
         });
 
-        await dispatch(changeSideContextType(context as SideContextRenderType));
+        await dispatch(changeSideContextType(context as SideContextType));
     };
 
     return { handleSidebarButtonClick, context };

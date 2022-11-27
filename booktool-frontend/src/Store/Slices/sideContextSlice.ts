@@ -1,14 +1,24 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { SideContextRenderType } from '@Types/sideContext';
+import { SideContextType, SideContextActionType, SideContextRenderType } from '@Types/sideContext';
 
 interface IDisplayPayloadAction {
-    renderType: SideContextRenderType;
+    contextType: SideContextType;
+}
+
+interface IChangeActionPayloadAction {
+    actionType: SideContextActionType;
+}
+
+interface IChangeRenderTypeAction {
+    renderType: SideContextRenderType
 }
 
 const initialState = {
+    contextType: 'dashboard',
+    actionType: 'none',
+    renderType: 'tiles',
     isActive: false,
-    renderType: 'dashboard',
     isLoading: false
 };
 
@@ -16,16 +26,24 @@ export const sideContextSlice = createSlice({
     name: 'sideContext',
     initialState,
     reducers: {
-        displaySideContext: (state) => {
+        display: (state) => {
             state.isActive = true;
         },
-        hideSideContext: (state) => {
+        hide: (state) => {
             state.isActive = false;
         },
-        changeRenderType: (state, action: PayloadAction<IDisplayPayloadAction>) => {
+        changeContextType: (state, action: PayloadAction<IDisplayPayloadAction>) => {
+            const { payload } = action;
+            state.contextType = payload.contextType;
+        },
+        changeActionType: (state, action: PayloadAction<IChangeActionPayloadAction>) => {
+            const { payload } = action;
+            state.actionType = payload.actionType;
+        },
+        changeRenderType: (state, action: PayloadAction<IChangeRenderTypeAction>) => {
             const { payload } = action;
             state.renderType = payload.renderType;
-        }
+        },
     },
     extraReducers: {
         ['sideContext/changeType/pending']: (state) => {
@@ -37,6 +55,7 @@ export const sideContextSlice = createSlice({
     }
 });
 
-export const { displaySideContext, hideSideContext, changeRenderType } = sideContextSlice.actions;
+export const { display, hide, changeContextType, changeActionType, changeRenderType } =
+    sideContextSlice.actions;
 
 export default sideContextSlice.reducer;

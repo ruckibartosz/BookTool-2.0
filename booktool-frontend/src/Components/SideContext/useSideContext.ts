@@ -1,4 +1,4 @@
-import { hide, display } from '@Store/Actions/sideContext';
+import { hideSideContext, displaySideContext } from '@Store/Actions/sideContext';
 import useAppSelector from '@Hooks/useAppSelector';
 import useAppDispatch from '@Hooks/useAppDispatch';
 
@@ -8,9 +8,9 @@ const useSideContext = () => {
 
     const handleShowHideButtonClick = () => {
         if (isActive) {
-            dispatch(hide());
+            dispatch(hideSideContext());
         } else {
-            dispatch(display());
+            dispatch(displaySideContext());
         }
     };
 

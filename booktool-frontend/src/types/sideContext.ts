@@ -1,4 +1,4 @@
-export type SideContextRenderType =
+export type SideContextType =
     | 'mail'
     | 'apartments'
     | 'clients'
@@ -6,3 +6,8 @@ export type SideContextRenderType =
     | 'connection'
     | 'settings'
     | 'information';
+
+
+export type SideContextActionType = 'add' | 'edit' | 'delete' | 'none';
+
+export type SideContextRenderType = 'tiles' | 'list';

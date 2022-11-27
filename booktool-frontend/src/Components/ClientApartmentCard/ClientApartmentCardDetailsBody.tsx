@@ -7,8 +7,8 @@ type Props = {
 
 const ClientApartmentCardDetailsBody: React.FC<Props> = ({ children }) => {
     return (
-        <Box p="8px" w="100%" h="100%" bgColor="blackAlpha.200" rounded="lg">
-            <Flex justifyContent="space-around">{children}</Flex>
+        <Box p="8px" w="100%" h="80px" bgColor="blackAlpha.200" rounded="lg">
+            <Flex h="full" justifyContent="space-around" alignItems="center">{children}</Flex>
         </Box>
     );
 };

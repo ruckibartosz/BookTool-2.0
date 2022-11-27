@@ -15,7 +15,7 @@ const ClientApartmentCardBody: React.FC<Props> = ({ children }) => {
             border="1px solid"
             borderColor="gray.200"
             w="320px"
-            h="235px"
+            h="285px"
         >
             <Flex h="100%" w="100%" alignItems="center" justifyContent="center" flexDirection="column">
                 {children}
