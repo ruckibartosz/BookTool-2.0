@@ -14,22 +14,22 @@ const SideContextClients: React.FC = () => {
         <SideContextBody>
             <SideContextSection>
                 <SideContextHeader>Wyświetlanie</SideContextHeader>
-                <SideContextButton icon={<AiOutlineUnorderedList color="primary.first" size={20} />}>
+                <SideContextButton func="list" icon={<AiOutlineUnorderedList color="primary.first" size={20} />}>
                     Wyświetl jako listę
                 </SideContextButton>
-                <SideContextButton icon={<BsGrid3X3 color="primary.first" size={20} />}>
+                <SideContextButton func="tiles" icon={<BsGrid3X3 color="primary.first" size={20} />}>
                     Wyświetl jako kafelki
                 </SideContextButton>
             </SideContextSection>
             <SideContextSection>
                 <SideContextHeader>Opcje</SideContextHeader>
-                <SideContextButton icon={<IoAddCircleOutline color="primary.first" size={20} />}>
+                <SideContextButton func="add" icon={<IoAddCircleOutline color="primary.first" size={20} />}>
                     Utwórz klienta
                 </SideContextButton>
-                <SideContextButton icon={<AiOutlineEdit color="primary.first" size={20} />}>
+                <SideContextButton func="edit" icon={<AiOutlineEdit color="primary.first" size={20} />}>
                     Edytuj klienta
                 </SideContextButton>
-                <SideContextButton icon={<AiOutlineDelete color="primary.first" size={20} />}>
+                <SideContextButton func="delete" icon={<AiOutlineDelete color="primary.first" size={20} />}>
                     Usuń klienta
                 </SideContextButton>
             </SideContextSection>

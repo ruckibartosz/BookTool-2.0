@@ -10,10 +10,10 @@ import SideContextSettings from './SideContextSettings';
 import SideContextInformation from './SideContextInformation';
 
 const SideContext: React.FC = () => {
-    const { renderType } = useAppSelector((state) => state.sideContext);
+    const { contextType } = useAppSelector((state) => state.sideContext);
 
     const renderSideContextType = () => {
-        switch (renderType) {
+        switch (contextType) {
             case 'mails':
                 return <SideContextMail />;
             case 'apartments':

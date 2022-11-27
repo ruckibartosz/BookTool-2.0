@@ -1,4 +1,4 @@
-import { hideSideContext, displaySideContext } from '@Store/Actions/sideContext';
+import { hideSideContext, displaySideContext, changeSideContextAction, changeSideContextRenderType } from '@Store/Actions/sideContext';
 import useAppSelector from '@Hooks/useAppSelector';
 import useAppDispatch from '@Hooks/useAppDispatch';
 
@@ -14,7 +14,20 @@ const useSideContext = () => {
         }
     };
 
-    return { handleShowHideButtonClick };
+    const handleAddButtonClick = () => dispatch(changeSideContextAction('add'));
+    const handleEditButtonClick = () => dispatch(changeSideContextAction('edit'));
+    const handleDeleteButtonClick = () => dispatch(changeSideContextAction('delete'));
+    const handleListButtonClick = () => dispatch(changeSideContextRenderType('list'));
+    const handleTilesButtonClick = () => dispatch(changeSideContextRenderType('tiles'));
+
+    return {
+        handleShowHideButtonClick,
+        handleAddButtonClick,
+        handleEditButtonClick,
+        handleDeleteButtonClick,
+        handleListButtonClick,
+        handleTilesButtonClick,
+    };
 };
 
 export default useSideContext;

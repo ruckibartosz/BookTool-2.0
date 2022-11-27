@@ -1,13 +1,13 @@
-/* eslint-disable */
-
 import React from 'react';
 import { Box, Flex, Menu, MenuButton, MenuList, MenuItem, IconButton } from '@chakra-ui/react';
 import { BsThreeDots } from 'react-icons/bs';
 import { AiOutlineDelete, AiOutlineEdit, AiOutlineCheck } from 'react-icons/ai';
 import { CgDetailsMore } from 'react-icons/cg';
 
+import useClientApartmentCard from './useClientApartmentCard';
+
 const ClientApartmentCardMenu: React.FC = () => {
-    const currentMode: string = 'deleting';
+    const { actionType } = useClientApartmentCard();
 
     const renderMenu = () => {
         return (
@@ -27,10 +27,10 @@ const ClientApartmentCardMenu: React.FC = () => {
     };
 
     const renderMenuOrIconButton = () => {
-        switch (currentMode) {
-            case 'editing':
+        switch (actionType) {
+            case 'edit':
                 return <IconButton aria-label="Edit" variant="edit" />;
-            case 'deleting':
+            case 'delete':
                 return <IconButton icon={<AiOutlineDelete size={20} />} aria-label="Delete" variant="del" />;
             case 'accepting':
                 return <IconButton icon={<AiOutlineCheck size={20} />} aria-label="Accept" variant="accept" />;
