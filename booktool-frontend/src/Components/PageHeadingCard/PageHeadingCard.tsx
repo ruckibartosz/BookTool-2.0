@@ -11,7 +11,7 @@ type Props = {
 
 const PageHeadingCard: React.FC<Props> = ({ variant, lastWeekData, lastMonthData }) => {
     return (
-        <Box w="70%" mb='16px' p='18px' bgColor='blackAlpha.200' rounded='md' boxShadow='sm'>
+        <Box ml="auto" mr="auto" w="70%" mb='16px' p='18px' bgColor='blackAlpha.200' rounded='md' boxShadow='sm'>
             <HStack justifyContent='space-around'>
                 <Box>
                     <HStack gap='14px'>

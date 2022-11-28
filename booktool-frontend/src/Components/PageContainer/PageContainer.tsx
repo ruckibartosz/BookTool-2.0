@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Flex } from '@chakra-ui/react';
+import { Container } from '@chakra-ui/react';
 
 import useAppSelector from '@Hooks/useAppSelector';
 
@@ -11,13 +11,16 @@ const PageContainer: React.FC<Props> = ({ children }) => {
     const { isActive } = useAppSelector((state) => state.sideContext);
     return (
         <Container
-            maxW="4xl"
+            maxW="6xl"
+            maxH="calc(100vh - 92px)"
             pt="22px"
             position="relative"
             left={isActive ? '320px' : '28px'}
             transition="all .3s ease-in-out"
+            overflowY="scroll"
+            overflowX="hidden"
         >
-            <Flex alignItems="center" flexDirection="column">{children}</Flex>
+            {children}
         </Container>
     );
 };
