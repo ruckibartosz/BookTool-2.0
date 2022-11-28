@@ -1,8 +1,8 @@
 import { useToast } from '@chakra-ui/react';
 
+import { closePopup } from '@Actions/popup';
 import useAppSelector from '@Hooks/useAppSelector';
 import useAppDispatch from '@Hooks/useAppDispatch';
-import { closePopup } from '@Actions/popup';
 
 const useClients = () => {
     const toast = useToast();
@@ -21,7 +21,7 @@ const useClients = () => {
             position: 'top'
         });
 
-        dispatch(closePopup())
+        dispatch(closePopup());
     };
 
     return { onConfirmAlertButtonClick };
