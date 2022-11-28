@@ -7,7 +7,7 @@ import { CgDetailsMore } from 'react-icons/cg';
 import useClientApartmentCard from './useClientApartmentCard';
 
 const ClientApartmentCardMenu: React.FC = () => {
-    const { actionType } = useClientApartmentCard();
+    const { actionType, handleDeleteButtonClick } = useClientApartmentCard();
 
     const renderMenu = () => {
         return (
@@ -20,7 +20,9 @@ const ClientApartmentCardMenu: React.FC = () => {
                 <MenuList>
                     <MenuItem icon={<CgDetailsMore size={20} />}>Zobacz szczegóły</MenuItem>
                     <MenuItem icon={<AiOutlineEdit size={20} />}>Edytuj</MenuItem>
-                    <MenuItem icon={<AiOutlineDelete size={20} />}>Usuń</MenuItem>
+                    <MenuItem icon={<AiOutlineDelete size={20} />} onClick={handleDeleteButtonClick}>
+                        Usuń
+                    </MenuItem>
                 </MenuList>
             </Menu>
         );
@@ -31,9 +33,17 @@ const ClientApartmentCardMenu: React.FC = () => {
             case 'edit':
                 return <IconButton aria-label="Edit" variant="edit" />;
             case 'delete':
-                return <IconButton icon={<AiOutlineDelete size={20} />} aria-label="Delete" variant="del" />;
+                return (
+                    <IconButton
+                        icon={<AiOutlineDelete size={20} onClick={handleDeleteButtonClick} />}
+                        aria-label="Delete"
+                        variant="del"
+                    />
+                );
             case 'accepting':
-                return <IconButton icon={<AiOutlineCheck size={20} />} aria-label="Accept" variant="accept" />;
+                return (
+                    <IconButton icon={<AiOutlineCheck size={20} />} aria-label="Accept" variant="accept" />
+                );
             default:
                 return renderMenu();
         }
