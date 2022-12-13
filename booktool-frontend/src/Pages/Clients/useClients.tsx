@@ -8,13 +8,14 @@ const useClients = () => {
     const toast = useToast();
     const dispatch = useAppDispatch();
     const {
-        data: { clientId }
+        data
     } = useAppSelector((state) => state.popup);
+
 
     const onConfirmAlertButtonClick = () => {
         toast({
             title: 'Usunięto użytkownika.',
-            description: `Pomyślnie udało się usunąć użytkownika o id: ${clientId}`,
+            description: `Pomyślnie udało się usunąć użytkownika o id: ${data?.clientId && data?.clientId}`,
             status: 'success',
             duration: 4500,
             isClosable: true,

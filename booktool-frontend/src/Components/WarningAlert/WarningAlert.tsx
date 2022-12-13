@@ -22,7 +22,7 @@ type Props = {
 
 const WarningAlert: React.FC<Props> = ({ id, alertHeader, children, confirmButtonText, onConfirmClick }) => {
     const { isOpen, handleCloseButtonClick } = useWarningAlert(id);
-    const cancelRef = React.useRef<any>(null);
+    const cancelRef = React.useRef<any>();
 
     return (
         <AlertDialog leastDestructiveRef={cancelRef} isOpen={isOpen} onClose={() => {}}>

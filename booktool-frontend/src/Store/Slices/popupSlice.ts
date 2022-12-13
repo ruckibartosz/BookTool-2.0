@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface IOpenAction {
     id: string;
-    data: Record<string, unknown>;
+    data?: Record<string, unknown>;
 }
 
 type InitialStateType = {

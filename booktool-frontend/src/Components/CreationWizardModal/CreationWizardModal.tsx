@@ -21,11 +21,11 @@ import useCreationWizardModal from './useCreationWizardModal';
 import CreationWizardModalCard from '@Components/CreationWizardModalCard';
 
 const CreationWizardModal: React.FC = () => {
-    const { onClose } = useCreationWizardModal();
+    const { isOpen, handleCloseButtonClick } = useCreationWizardModal('creation-wizard');
 
     return (
         <>
-            <Modal closeOnOverlayClick={false} isOpen={true} onClose={onClose} size="xl">
+            <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={handleCloseButtonClick} size="xl">
                 <ModalOverlay />
                 <ModalContent>
                     <ModalHeader textAlign="center">Wybierz, co chciałbyś utworzyć</ModalHeader>
@@ -83,7 +83,7 @@ const CreationWizardModal: React.FC = () => {
                                 variant="solid"
                                 fontSize="xs"
                                 w="120px"
-                                onClick={onClose}
+                                onClick={handleCloseButtonClick}
                             >
                                 Anuluj
                             </Button>

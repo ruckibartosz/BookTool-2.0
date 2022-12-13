@@ -1,17 +1,14 @@
-import useAppSelector from '@Hooks/useAppSelector';
-import useCreationWizardModal from '@Components/CreationWizardModal/useCreationWizardModal';
 import { ContextHeaderTranslation } from '@Types/context';
+import useAppSelector from '@Hooks/useAppSelector';
 
 const useNavbar = () => {
-    const { onOpen } = useCreationWizardModal();
-    const { context } = useAppSelector(state => state.context);
+    const { context } = useAppSelector((state) => state.context);
     const indexOfEnumValue = Object.values(ContextHeaderTranslation).indexOf(
-        context as unknown as ContextHeaderTranslation,
-      );
-      const translatedNavbarHeader = Object.keys(ContextHeaderTranslation)[indexOfEnumValue];
-    const onAddButtonHandler = () => onOpen;
+        context as unknown as ContextHeaderTranslation
+    );
+    const translatedNavbarHeader = Object.keys(ContextHeaderTranslation)[indexOfEnumValue];
 
-    return { onAddButtonHandler, translatedNavbarHeader };
-}
+    return { translatedNavbarHeader };
+};
 
 export default useNavbar;
