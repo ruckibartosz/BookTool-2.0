@@ -8,7 +8,9 @@ const useNavbar = () => {
     );
     const translatedNavbarHeader = Object.keys(ContextHeaderTranslation)[indexOfEnumValue];
 
-    return { translatedNavbarHeader };
+    const refreshPage = () => document.location.reload();
+
+    return { translatedNavbarHeader, refreshPage };
 };
 
 export default useNavbar;

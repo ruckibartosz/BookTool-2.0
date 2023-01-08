@@ -4,11 +4,13 @@ import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { SlReload } from 'react-icons/sl';
 import { AiOutlineLogout, AiOutlinePlus } from 'react-icons/ai';
 
+import useNavbar from './useNavbar';
 import useCreationWizardModal from '@Components/CreationWizardModal/useCreationWizardModal';
 import NavbarControlsContainer from './NavbarControlsContainer';
 
 const NavbarControls: React.FC = () => {
     const { handleOpenButtonClick } = useCreationWizardModal("creation-wizard");
+    const { refreshPage } = useNavbar();
 
     return (
         <NavbarControlsContainer>
@@ -24,6 +26,7 @@ const NavbarControls: React.FC = () => {
                 color="primary.second"
                 bgColor="primary.firstAlpha35"
                 _hover={{ bgColor: 'primary.firstAlpha60', transition: 'all .3s ease-in-out' }}
+                onClick={refreshPage}
             >
                 <SlReload size={28} />
             </Box>
