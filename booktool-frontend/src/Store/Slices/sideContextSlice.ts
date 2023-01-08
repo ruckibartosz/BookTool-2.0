@@ -15,7 +15,7 @@ interface IChangeRenderTypeAction {
 }
 
 const initialState = {
-    contextType: 'dashboard',
+    contextType: window.location.pathname.replace("/", ""),
     actionType: 'none',
     renderType: 'tiles',
     isActive: false,

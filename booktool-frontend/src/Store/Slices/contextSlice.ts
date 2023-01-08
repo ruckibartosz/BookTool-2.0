@@ -11,7 +11,7 @@ interface IChangeLoadingStatus {
 }
 
 const initialState = {
-    context: 'dashboard',
+    context: window.location.pathname.replace("/", ""),
     isLoading: false
 };
 
