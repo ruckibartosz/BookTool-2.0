@@ -16,7 +16,7 @@ const RecentReservationTableBody: React.FC = () => {
                 <RecentReservationTableTd variant="date">05-10-2023</RecentReservationTableTd>
                 <RecentReservationTableTd variant="date">10-10-2023</RecentReservationTableTd>
                 <RecentReservationTableTd>
-                    <IconButton colorScheme="purple" aria-label="Details" icon={<AiOutlineEye size={18} />} />
+                    <IconButton colorScheme="purple" aria-label="Details" icon={<AiOutlineEye size={22} />} />
                 </RecentReservationTableTd>
             </Tr>
             <Tr>
@@ -28,7 +28,7 @@ const RecentReservationTableBody: React.FC = () => {
                 <RecentReservationTableTd variant="date">05-10-2023</RecentReservationTableTd>
                 <RecentReservationTableTd variant="date">10-10-2023</RecentReservationTableTd>
                 <RecentReservationTableTd>
-                    <IconButton colorScheme="purple" aria-label="Details" icon={<AiOutlineEye size={18} />} />
+                    <IconButton colorScheme="purple" aria-label="Details" icon={<AiOutlineEye size={22} />} />
                 </RecentReservationTableTd>
             </Tr>
             <Tr>
@@ -40,7 +40,7 @@ const RecentReservationTableBody: React.FC = () => {
                 <RecentReservationTableTd variant="date">05-10-2023</RecentReservationTableTd>
                 <RecentReservationTableTd variant="date">10-10-2023</RecentReservationTableTd>
                 <RecentReservationTableTd>
-                    <IconButton colorScheme="purple" aria-label="Details" icon={<AiOutlineEye size={18} />} />
+                    <IconButton colorScheme="purple" aria-label="Details" icon={<AiOutlineEye size={22} />} />
                 </RecentReservationTableTd>
             </Tr>
         </Tbody>
