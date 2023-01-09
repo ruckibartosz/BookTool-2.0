@@ -3,6 +3,7 @@ import { Grid, GridItem, Box } from '@chakra-ui/react';
 import { BsCalendarCheck } from 'react-icons/bs';
 
 import DashboardStatisticCard from '@Components/DashboardStatisticCard';
+import RecentReservationTable from '@Components/RecentReservationTable';
 
 const Dashboard: React.FC = () => {
     return (
@@ -18,6 +19,7 @@ const Dashboard: React.FC = () => {
                     />
                 </GridItem>
             </Grid>
+            <RecentReservationTable />
         </Box>
     );
 };
