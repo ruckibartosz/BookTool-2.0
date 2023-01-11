@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box, Button, Tooltip } from '@chakra-ui/react';
-import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { SlReload } from 'react-icons/sl';
 import { AiOutlineLogout, AiOutlinePlus } from 'react-icons/ai';
 
 import useNavbar from './useNavbar';
 import useCreationWizardModal from '@Components/CreationWizardModal/useCreationWizardModal';
+import NotificationsPopover from '@Components/NotificationsPopover';
 import NavbarControlsContainer from './NavbarControlsContainer';
 
 const NavbarControls: React.FC = () => {
@@ -59,23 +59,8 @@ const NavbarControls: React.FC = () => {
                     <AiOutlineLogout size={26} />
                 </Box>
             </Tooltip>
-            <Tooltip hasArrow label="Więcej opcji" placement="bottom">
-                <Box
-                    as="button"
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="center"
-                    h="42px"
-                    w="42px"
-                    rounded="md"
-                    aria-label="Call Segun"
-                    color="primary.second"
-                    bgColor="primary.firstAlpha35"
-                    _hover={{ bgColor: 'primary.firstAlpha60', transition: 'all .3s ease-in-out' }}
-                >
-                    <BiDotsHorizontalRounded size={26} />
-                </Box>
-            </Tooltip>
+
+            <NotificationsPopover />
         </NavbarControlsContainer>
     );
 };
