@@ -8,12 +8,14 @@ import Sidebar from '@Components/Sidebar';
 import Navbar from '@Components/Navbar';
 import SideContext from '@Components/SideContext';
 import CreationWizardModal from '@Components/CreationWizardModal';
+import ReservationModal from '@Components/ReservationModal';
 
 const Home: React.FC = () => {
     const { isActive } = useAppSelector((state) => state.sideContext);
     return (
         <>
             <CreationWizardModal />
+            <ReservationModal />
             <Grid {...HOME_SETTINGS}>
                 <GridItem area={HOME_AREA.sidebar} zIndex={2}>
                     <Sidebar />
