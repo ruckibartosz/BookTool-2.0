@@ -8,16 +8,18 @@ import Sidebar from '@Components/Sidebar';
 import Navbar from '@Components/Navbar';
 import SideContext from '@Components/SideContext';
 import CreationWizardModal from '@Components/CreationWizardModal';
-import ApartmentModal from '@Components/ApartmentModal';
+// import ClientModal from '@Components/ClientModal';
+// import ApartmentModal from '@Components/ApartmentModal';
 // import ReservationModal from '@Components/ReservationModal';
 
 const Home: React.FC = () => {
     const { isActive } = useAppSelector((state) => state.sideContext);
     return (
         <>
-            <ApartmentModal />
-            <CreationWizardModal />
+            {/* <ClientModal /> */}
+            {/* <ApartmentModal /> */}
             {/* <ReservationModal /> */}
+            <CreationWizardModal />
             <Grid {...HOME_SETTINGS}>
                 <GridItem area={HOME_AREA.sidebar} zIndex={2}>
                     <Sidebar />
