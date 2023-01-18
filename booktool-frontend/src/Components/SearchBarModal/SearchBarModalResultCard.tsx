@@ -1,11 +1,6 @@
 import React from 'react';
 import { HStack, VStack, Text, Circle } from '@chakra-ui/react';
-import {
-    AiOutlineUser,
-    AiOutlineCalendar,
-    AiOutlineMail,
-    AiOutlineHome
-} from 'react-icons/ai';
+import { AiOutlineUser, AiOutlineCalendar, AiOutlineMail, AiOutlineHome } from 'react-icons/ai';
 
 type Props = {
     variant: 'client' | 'reservation' | 'mail' | 'apartment';
@@ -35,7 +30,8 @@ const SearchBarModalResultCard: React.FC<Props> = ({ variant, category, data }) 
             w="full"
             rounded="md"
             shadow="md"
-            _hover={{ cursor: 'pointer' }}
+            _hover={{ cursor: 'pointer', backgroundColor: 'primary.firstAlpha35' }}
+            transition="all .2s ease-in-out"
         >
             <Circle size="44px">{renderCardIcon()}</Circle>
             <VStack alignItems="flex-start">
