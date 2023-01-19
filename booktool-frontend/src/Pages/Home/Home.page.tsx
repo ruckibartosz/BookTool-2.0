@@ -8,7 +8,7 @@ import Sidebar from '@Components/Sidebar';
 import Navbar from '@Components/Navbar';
 import SideContext from '@Components/SideContext';
 import CreationWizardModal from '@Components/CreationWizardModal';
-import SearchBarModal from '@Components/SearchBarModal';
+// import SearchBarModal from '@Components/SearchBarModal';
 // import ClientModal from '@Components/ClientModal';
 // import ApartmentModal from '@Components/ApartmentModal';
 // import ReservationModal from '@Components/ReservationModal';
@@ -20,7 +20,7 @@ const Home: React.FC = () => {
             {/* <ClientModal /> */}
             {/* <ApartmentModal /> */}
             {/* <ReservationModal /> */}
-            <SearchBarModal />
+            {/* <SearchBarModal /> */}
             <CreationWizardModal />
             <Grid {...HOME_SETTINGS}>
                 <GridItem area={HOME_AREA.sidebar} zIndex={2}>

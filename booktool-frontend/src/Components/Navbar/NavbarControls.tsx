@@ -4,12 +4,12 @@ import { SlReload } from 'react-icons/sl';
 import { AiOutlineLogout, AiOutlinePlus } from 'react-icons/ai';
 
 import useNavbar from './useNavbar';
-import useCreationWizardModal from '@Components/CreationWizardModal/useCreationWizardModal';
+import usePopup from '@Hooks/usePopup';
 import NotificationsPopover from '@Components/NotificationsPopover';
 import NavbarControlsContainer from './NavbarControlsContainer';
 
 const NavbarControls: React.FC = () => {
-    const { handleOpenButtonClick } = useCreationWizardModal('creation-wizard');
+    const { handleOpenPopup } = usePopup('creation-wizard');
     const { refreshPage } = useNavbar();
 
     return (
@@ -37,7 +37,7 @@ const NavbarControls: React.FC = () => {
                 colorScheme="purple"
                 color="white"
                 variant="solid"
-                onClick={handleOpenButtonClick}
+                onClick={handleOpenPopup}
             >
                 Dodaj
             </Button>
