@@ -37,6 +37,7 @@
         "typescript": "^4.8.4"
     },
     "scripts": {
+        "dev": "cross-env NODE_ENV=development craco start",
         "start": "craco start",
         "build": "craco build",
         "test": "react-scripts test",
@@ -56,5 +57,9 @@
         "plugins": {
             "autoprefixer": {}
         }
+    },
+    "devDependencies": {
+        "cross-env": "^7.0.3",
+        "dotenv": "^16.0.3"
     }
 }
