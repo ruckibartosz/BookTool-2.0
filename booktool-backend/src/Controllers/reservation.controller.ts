@@ -1,13 +1,17 @@
 import { Reservation } from '../Types/reservation.interface';
 import { NextFunction, Request, Response } from 'express';
 import ReservationService from '../Services/reservation.service';
+import { SortOrder } from 'mongoose';
 
 export default class ReservationController {
   public reservationService = new ReservationService();
 
   public getReservations = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const findAllReservationsData = await this.reservationService.findAllReservations();
+      const sortBy: string = String(req.query.sortBy);
+      const sortOrder: SortOrder = req.query.sortOrder as SortOrder;
+      const findAllReservationsData = await this.reservationService.findAllReservations(sortBy, sortOrder);
+
       res.status(200).json({ data: findAllReservationsData, message: 'findAll' });
     } catch (error) {
       next(error);

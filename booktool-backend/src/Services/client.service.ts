@@ -2,11 +2,18 @@ import { HttpException } from '../Exceptions/http.exception';
 import { isEmpty } from '../Utils/util';
 import { Client } from '../Types/client.interface';
 import clientModel from '../Models/client.model';
+import { SortOrder } from 'mongoose';
 
 export default class ClientService {
   public clientModel = clientModel;
 
-  public async findAllClients() {
+  public async findAllClients(sortedBy: string = '', sortOrder: SortOrder) {
+    if (sortedBy !== '') {
+      const allClientsData = await clientModel.find().sort([[sortedBy, sortOrder]]);
+
+      return allClientsData;
+    }
+
     const allClientsData = await clientModel.find();
 
     return allClientsData;

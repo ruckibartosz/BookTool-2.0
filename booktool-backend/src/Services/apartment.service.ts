@@ -2,13 +2,19 @@ import { HttpException } from '../Exceptions/http.exception';
 import { isEmpty } from '../Utils/util';
 import { Apartment } from '../Types/apartment.interface';
 import apartmentModel from '../Models/apartments.model';
+import { SortOrder } from 'mongoose';
 
 export default class ApartmentService {
   public apartmentModel = apartmentModel;
 
-  public async findAllApartments() {
-    const allApartmentsData = await apartmentModel.find();
+  public async findAllApartments(sortedBy: string = '', sortOrder: SortOrder) {
+    if (sortedBy !== '') {
+      const allApartmentsData = await apartmentModel.find().sort([[sortedBy, sortOrder]]);
 
+      return allApartmentsData;
+    }
+
+    const allApartmentsData = await apartmentModel.find();
     return allApartmentsData;
   }
 

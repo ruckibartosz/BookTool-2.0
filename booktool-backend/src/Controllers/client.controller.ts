@@ -1,12 +1,15 @@
 import { Client } from '../Types/client.interface';
 import { NextFunction, Request, Response } from 'express';
 import ClientService from '../Services/client.service';
+import { SortOrder } from 'mongoose';
 export default class ClientController {
   public clientService = new ClientService();
 
   public getClients = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const findAllClientsData: Client[] = await this.clientService.findAllClients();
+      const sortBy: string = String(req.query.sortBy);
+      const sortOrder: SortOrder = req.query.sortOrder as SortOrder;
+      const findAllClientsData: Client[] = await this.clientService.findAllClients(sortBy, sortOrder);
 
       res.status(200).json({ data: findAllClientsData, message: 'findAll' });
     } catch (error) {

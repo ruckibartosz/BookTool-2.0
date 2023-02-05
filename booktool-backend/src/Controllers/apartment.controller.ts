@@ -1,5 +1,6 @@
 import { Apartment } from '../Types/apartment.interface';
 import { NextFunction, Request, Response } from 'express';
+import { SortOrder } from 'mongoose';
 import ApartmentService from '../Services/apartment.service';
 
 export default class ApartmentController {
@@ -7,7 +8,9 @@ export default class ApartmentController {
 
   public getApartments = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const findAllApartmentsData: Apartment[] = await this.apartmentService.findAllApartments();
+      const sortBy: string = String(req.query.sortBy);
+      const sortOrder: SortOrder = req.query.sortOrder as SortOrder;
+      const findAllApartmentsData: Apartment[] = await this.apartmentService.findAllApartments(sortBy, sortOrder);
 
       res.status(200).json({ data: findAllApartmentsData, message: 'findAll' });
     } catch (error) {
