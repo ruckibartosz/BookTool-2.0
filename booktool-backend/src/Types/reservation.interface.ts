@@ -1,4 +1,6 @@
-export interface Reservation {
+import { Document } from 'mongoose';
+
+export interface Reservation extends Document{
   _id: string;
   arrival: Date;
   checkout: Date;

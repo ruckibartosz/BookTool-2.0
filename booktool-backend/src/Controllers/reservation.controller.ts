@@ -1,15 +1,13 @@
-import BasicApiService from '../Services/basicApi.service';
-import reservationModel from '../Models/reservation.model';
 import { Reservation } from '../Types/reservation.interface';
 import { NextFunction, Request, Response } from 'express';
+import ReservationService from '../Services/reservation.service';
 
 export default class ReservationController {
-  public basicApiService = new BasicApiService<Reservation>(reservationModel);
+  public reservationService = new ReservationService();
 
   public getReservations = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const findAllReservationsData: Reservation[] = await this.basicApiService.findAllModels();
-      
+      const findAllReservationsData = await this.reservationService.findAllReservations();
       res.status(200).json({ data: findAllReservationsData, message: 'findAll' });
     } catch (error) {
       next(error);
@@ -18,7 +16,7 @@ export default class ReservationController {
 
   public getReservation = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const findReservationData: Reservation = await this.basicApiService.findModelById(req.params.id);
+      const findReservationData = await this.reservationService.findOneReservation(req.params.id);
 
       res.status(200).json({ data: findReservationData, message: 'findOne' });
     } catch (error) {
@@ -30,7 +28,7 @@ export default class ReservationController {
     try {
       const reservationId: string = req.params.id;
       const reservationData: Reservation = req.body;
-      const updatedReservationData: Reservation = await this.basicApiService.updateModel(reservationId, reservationData);
+      const updatedReservationData = await this.reservationService.updateReservation(reservationData, reservationId);
 
       res.status(200).json({ data: updatedReservationData, message: 'updateOne' });
     } catch (error) {
@@ -41,7 +39,7 @@ export default class ReservationController {
   public deleteReservation = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const reservationId: string = req.params.id;
-      const deletedReservationData: Reservation = await this.basicApiService.deleteModel(reservationId);
+      const deletedReservationData = await this.reservationService.deleteReservation(reservationId);
 
       res.status(200).json({ data: deletedReservationData, message: 'deleteOne' });
     } catch (error) {
@@ -51,7 +49,7 @@ export default class ReservationController {
 
   public createReservation = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const createdReservationData: Reservation = await this.basicApiService.createModel(req.body);
+      const createdReservationData = await this.reservationService.createReservation(req.body);
 
       res.status(200).json({ data: createdReservationData, message: 'create' });
     } catch (error) {

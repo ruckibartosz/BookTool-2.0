@@ -1,14 +1,13 @@
-import BasicApiService from '../Services/basicApi.service';
-import apartmentModel from '../Models/apartments.model';
 import { Apartment } from '../Types/apartment.interface';
 import { NextFunction, Request, Response } from 'express';
+import ApartmentService from '../Services/apartment.service';
 
 export default class ApartmentController {
-  public basicApiService = new BasicApiService<Apartment>(apartmentModel);
+  public apartmentService = new ApartmentService();
 
   public getApartments = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const findAllApartmentsData: Apartment[] = await this.basicApiService.findAllModels();
+      const findAllApartmentsData: Apartment[] = await this.apartmentService.findAllApartments();
 
       res.status(200).json({ data: findAllApartmentsData, message: 'findAll' });
     } catch (error) {
@@ -18,7 +17,8 @@ export default class ApartmentController {
 
   public getApartment = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const findApartmentData: Apartment = await this.basicApiService.findModelById(req.params.id);
+      const apartmentId = req.params.id;
+      const findApartmentData = await this.apartmentService.findOneApartment(apartmentId);
 
       res.status(200).json({ data: findApartmentData, message: 'findOne' });
     } catch (error) {
@@ -30,7 +30,7 @@ export default class ApartmentController {
     try {
       const apartmentId: string = req.params.id;
       const apartmentData: Apartment = req.body;
-      const updatedApartmentData: Apartment = await this.basicApiService.updateModel(apartmentId, apartmentData);
+      const updatedApartmentData = await this.apartmentService.updateApartment(apartmentData, apartmentId);
 
       res.status(200).json({ data: updatedApartmentData, message: 'updateOne' });
     } catch (error) {
@@ -41,7 +41,7 @@ export default class ApartmentController {
   public deleteApartment = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const apartmentId: string = req.params.id;
-      const deletedApartmentData: Apartment = await this.basicApiService.deleteModel(apartmentId);
+      const deletedApartmentData = await this.apartmentService.deleteApartment(apartmentId);
 
       res.status(200).json({ data: deletedApartmentData, message: 'deleteOne' });
     } catch (error) {
@@ -51,7 +51,8 @@ export default class ApartmentController {
 
   public createApartment = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const createdApartmentData: Apartment = await this.basicApiService.createModel(req.body);
+      const apartmentData = req.body;
+      const createdApartmentData = await this.apartmentService.createApartment(apartmentData);
 
       res.status(200).json({ data: createdApartmentData, message: 'create' });
     } catch (error) {
