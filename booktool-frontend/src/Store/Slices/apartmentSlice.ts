@@ -1,4 +1,4 @@
-import { Apartment } from '@/Types/apartment';
+import { Apartment } from '../../Types/apartment';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type InitialStateType = {
@@ -13,25 +13,31 @@ const initialState: InitialStateType = {
     isLoading: false
 };
 
-interface IChangeAllApartmentsData {
-    allApartments: Apartment[];
-}
-
-interface IChangeOneApartmentData {
-    oneApartment: Apartment;
-}
-
 export const apartmentSlice = createSlice({
     name: 'apartment',
     initialState,
     reducers: {
-        changeAllApartmentsData: (state, action: PayloadAction<IChangeAllApartmentsData>) => {
+        changeAllApartmentsData: (state, action: PayloadAction<Apartment[]>) => {
             const { payload } = action;
-            state.allApartments = payload.allApartments;
+            state.allApartments = payload;
         },
-        changeOneApartmentData: (state, action: PayloadAction<IChangeOneApartmentData>) => {
+        changeOneApartmentData: (state, action: PayloadAction<Apartment>) => {
             const { payload } = action;
-            state.oneApartment = payload.oneApartment;
+            state.oneApartment = payload;
+        }
+    },
+    extraReducers: {
+        ['apartment/getAll/pending']: (state) => {
+            state.isLoading = true;
+        },
+        ['apartment/getAll/fulfilled']: (state) => {
+            state.isLoading = false;
+        },
+        ['apartment/getOne/pending']: (state) => {
+            state.isLoading = true;
+        },
+        ['apartment/getOne/fulfilled']: (state) => {
+            state.isLoading = false;
         }
     }
 });

@@ -3,35 +3,48 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type InitialStateType = {
     allClients: Client[];
-    oneClient: Client | object;
+    oneClient: Client;
     isLoading: boolean;
 };
 
 const initialState: InitialStateType = {
     allClients: [],
-    oneClient: {},
+    oneClient: {
+        _id: "",
+        firstName: "",
+        lastName: "",
+        phoneNumber: "",
+        email: "",
+        createdAt: "",
+    },
     isLoading: false
 };
-
-interface IChangeAllClientsData {
-    allClients: Client[];
-}
-
-interface IChangeOneClientData {
-    oneClient: Client;
-}
 
 export const clientSlice = createSlice({
     name: 'client',
     initialState,
     reducers: {
-        changeAllClientsData: (state, action: PayloadAction<IChangeAllClientsData>) => {
+        changeAllClientsData: (state, action: PayloadAction<Client[]>) => {
             const { payload } = action;
-            state.allClients = payload.allClients;
+            state.allClients = payload;
         },
-        changeOneClientData: (state, action: PayloadAction<IChangeOneClientData>) => {
+        changeOneClientData: (state, action: PayloadAction<Client>) => {
             const { payload } = action;
-            state.oneClient = payload.oneClient;
+            state.oneClient = payload;
+        }
+    },
+    extraReducers: {
+        ['client/getAll/pending']: (state) => {
+            state.isLoading = true;
+        },
+        ['client/getAll/fulfilled']: (state) => {
+            state.isLoading = false;
+        },
+        ['client/getOne/pending']: (state) => {
+            state.isLoading = true;
+        },
+        ['client/getOne/fulfilled']: (state) => {
+            state.isLoading = false;
         }
     }
 });

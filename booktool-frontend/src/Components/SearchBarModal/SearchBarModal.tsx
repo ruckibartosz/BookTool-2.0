@@ -9,7 +9,7 @@ const SearchBarModal: React.FC = () => {
     return (
         <SearchBarModalContainer>
             <SearchBarModalBody>
-                <SearchBar w="full" border="0" _focusVisible={{ border: 0 }} mb="22px"/>
+                <SearchBar w="full" border="0" _focusVisible={{ border: 0 }} mb="22px" />
                 <SearchBarModalResults />
             </SearchBarModalBody>
         </SearchBarModalContainer>

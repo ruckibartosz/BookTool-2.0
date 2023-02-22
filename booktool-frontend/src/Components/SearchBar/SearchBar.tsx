@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { HTMLProps } from 'react';
 import { Box, InputGroup, InputLeftElement, Input, ChakraProps } from '@chakra-ui/react';
 import { AiOutlineSearch } from 'react-icons/ai';
 
-const SearchBar: React.FC<ChakraProps> = ({ w, border, _focusVisible, mb }) => {
+const SearchBar: React.FC<ChakraProps & HTMLProps<HTMLInputElement>> = ({ w, border, _focusVisible, mb, onClick }) => {
     return (
         <Box w={w} mb={mb}>
             <InputGroup
@@ -15,6 +15,7 @@ const SearchBar: React.FC<ChakraProps> = ({ w, border, _focusVisible, mb }) => {
                     placeholder="Wyszukaj..."
                     maxW="320px"
                     border={border}
+                    onClick={onClick}
                     _focusVisible={_focusVisible}
                 />
             </InputGroup>

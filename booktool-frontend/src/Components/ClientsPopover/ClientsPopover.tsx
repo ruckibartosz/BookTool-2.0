@@ -9,10 +9,15 @@ import {
 } from '@chakra-ui/react';
 import { AiOutlineUser } from 'react-icons/ai';
 
+import { Client } from '@Types/client';
 import ClientsPopoverHeader from './ClientsPopoverHeader';
 import ClientsPopoverBody from './ClientsPopoverBody';
 
-const ClientsPopover: React.FC = () => {
+type Props = {
+    onClick: (client: Client) => void;
+}
+
+const ClientsPopover: React.FC<Props> = ({ onClick }) => {
     return (
         <Popover>
             <PopoverTrigger>
@@ -37,7 +42,7 @@ const ClientsPopover: React.FC = () => {
                 <PopoverArrow />
                 <PopoverCloseButton />
                 <ClientsPopoverHeader />
-                <ClientsPopoverBody />
+                <ClientsPopoverBody onClick={onClick} />
             </PopoverContent>
         </Popover>
     );

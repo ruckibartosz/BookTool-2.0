@@ -3,6 +3,7 @@ import { BsGrid3X3 } from 'react-icons/bs';
 import { AiOutlineUnorderedList, AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai';
 import { IoAddCircleOutline } from 'react-icons/io5';
 
+import useSideContextClients from './useSideContextClients';
 import SideContextBody from './SideContextBody';
 import SideContextSection from './SideContextSection';
 import SideContextHeader from './SideContextHeader';
@@ -10,6 +11,8 @@ import SideContextButton from './SideContextButton';
 
 
 const SideContextClients: React.FC = () => {
+    const { handleOpenPopupCreateClient } = useSideContextClients();
+
     return (
         <SideContextBody>
             <SideContextSection>
@@ -23,7 +26,7 @@ const SideContextClients: React.FC = () => {
             </SideContextSection>
             <SideContextSection>
                 <SideContextHeader>Opcje</SideContextHeader>
-                <SideContextButton func="add" icon={<IoAddCircleOutline color="primary.first" size={20} />}>
+                <SideContextButton onClick={handleOpenPopupCreateClient} func="add" icon={<IoAddCircleOutline color="primary.first" size={20} />}>
                     Utwórz klienta
                 </SideContextButton>
                 <SideContextButton func="edit" icon={<AiOutlineEdit color="primary.first" size={20} />}>

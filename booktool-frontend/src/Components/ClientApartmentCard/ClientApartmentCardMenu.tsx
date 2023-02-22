@@ -6,8 +6,12 @@ import { CgDetailsMore } from 'react-icons/cg';
 
 import useClientApartmentCard from './useClientApartmentCard';
 
-const ClientApartmentCardMenu: React.FC = () => {
-    const { actionType, handleDeleteButtonClick } = useClientApartmentCard();
+type Props = {
+    id: string;
+}
+
+const ClientApartmentCardMenu: React.FC<Props> = ({ id }) => {
+    const { actionType, handleDeleteButtonClick, handleEditButtonClick } = useClientApartmentCard(id);
 
     const renderMenu = () => {
         return (
@@ -19,7 +23,7 @@ const ClientApartmentCardMenu: React.FC = () => {
                 </MenuButton>
                 <MenuList>
                     <MenuItem icon={<CgDetailsMore size={20} />}>Zobacz szczegóły</MenuItem>
-                    <MenuItem icon={<AiOutlineEdit size={20} />}>Edytuj</MenuItem>
+                    <MenuItem onClick={handleEditButtonClick} icon={<AiOutlineEdit size={20} />}>Edytuj</MenuItem>
                     <MenuItem icon={<AiOutlineDelete size={20} />} onClick={handleDeleteButtonClick}>
                         Usuń
                     </MenuItem>

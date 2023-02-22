@@ -7,10 +7,40 @@ import ListTilesView from '@Components/ListTilesView';
 import ListTilesViewItem from '@Components/ListTilesView/ListTilesViewItem';
 import ClientApartmentCard from '@Components/ClientApartmentCard';
 import WarningAlert from '@Components/WarningAlert';
-import ClientApartmentFilters from "@Components/ClientApartmentFilters";
+import ClientApartmentFilters from '@Components/ClientApartmentFilters';
+import Loader from '@Components/Loader';
 
 const Clients: React.FC = () => {
-    const { onConfirmAlertButtonClick } = useClients();
+    const { allClients, isLoading, onConfirmAlertButtonClick } = useClients();
+
+    const renderAllClients = () => {
+        return allClients.map((client) => {
+            return (
+                <ListTilesViewItem key={client._id}>
+                    <ClientApartmentCard
+                        id={client._id}
+                        variant="clients"
+                        heading={`${client.firstName} ${client.lastName}`}
+                        firstColumnData={client.email}
+                        secondColumnData={client.phoneNumber}
+                    />
+                </ListTilesViewItem>
+            );
+        });
+    };
+
+    const renderContext = () => {
+        if (isLoading) return <Loader />;
+
+        return (
+            <>
+                <PageHeadingCard variant="clients" lastWeekData={5} lastMonthData={10} />
+                <ClientApartmentFilters />
+                <ListTilesView>{renderAllClients()}</ListTilesView>
+            </>
+        );
+    };
+
     return (
         <>
             <WarningAlert
@@ -21,54 +51,9 @@ const Clients: React.FC = () => {
             >
                 Czy na pewno chcesz usunąć użytkownika? Tej akcji nie będzie można cofnąć.
             </WarningAlert>
-            <PageContainer>
-                <PageHeadingCard variant="clients" lastWeekData={5} lastMonthData={10} />
-                <ClientApartmentFilters />
-                <ListTilesView>
-                    <ListTilesViewItem>
-                        <ClientApartmentCard
-                            variant="clients"
-                            heading="Bartosz Rucki"
-                            firstColumnData="ruckibartosz@gmail.com"
-                            secondColumnData="726766346"
-                        />
-                    </ListTilesViewItem>
-                    <ListTilesViewItem>
-                        <ClientApartmentCard
-                            variant="clients"
-                            heading="Bartosz Rucki"
-                            firstColumnData="ruckibartosz@gmail.com"
-                            secondColumnData="726766346"
-                        />
-                    </ListTilesViewItem>
-                    <ListTilesViewItem>
-                        <ClientApartmentCard
-                            variant="clients"
-                            heading="Bartosz Rucki"
-                            firstColumnData="ruckibartosz@gmail.com"
-                            secondColumnData="726766346"
-                        />
-                    </ListTilesViewItem>
-                    <ListTilesViewItem>
-                        <ClientApartmentCard
-                            variant="clients"
-                            heading="Bartosz Rucki"
-                            firstColumnData="ruckibartosz@gmail.com"
-                            secondColumnData="726766346"
-                        />
-                    </ListTilesViewItem>
-                    <ListTilesViewItem>
-                        <ClientApartmentCard
-                            variant="clients"
-                            heading="Bartosz Rucki"
-                            firstColumnData="ruckibartosz@gmail.com"
-                            secondColumnData="726766346"
-                        />
-                    </ListTilesViewItem>
-                </ListTilesView>
-            </PageContainer>
+            <PageContainer>{renderContext()}</PageContainer>
         </>
     );
 };
 
-export default Clients;
+export default React.memo(Clients);

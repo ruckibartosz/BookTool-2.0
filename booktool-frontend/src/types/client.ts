@@ -4,5 +4,5 @@ export type Client = {
     lastName: string;
     email: string;
     phoneNumber: string;
-    createdAt: Date;
+    createdAt: Date | string;
 };

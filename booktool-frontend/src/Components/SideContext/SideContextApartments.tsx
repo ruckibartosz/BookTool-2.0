@@ -9,7 +9,7 @@ import SideContextSection from './SideContextSection';
 import SideContextHeader from './SideContextHeader';
 import SideContextButton from './SideContextButton';
 
-const SideContextApartments: React.FC = () => {
+const SideContextApartments: React.FC = () => {    
     return (
         <SideContextBody>
             <SideContextSection>

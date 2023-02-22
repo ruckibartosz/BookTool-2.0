@@ -13,25 +13,31 @@ const initialState: InitialStateType = {
     isLoading: false
 };
 
-interface IChangeAllReservationsData {
-    allReservations: Reservation[];
-}
-
-interface IChangeOneReservationData {
-    oneReservation: Reservation;
-}
-
 export const reservationSlice = createSlice({
     name: 'reservation',
     initialState,
     reducers: {
-        changeAllReservationsData: (state, action: PayloadAction<IChangeAllReservationsData>) => {
+        changeAllReservationsData: (state, action: PayloadAction<Reservation[]>) => {
             const { payload } = action;
-            state.allReservations = payload.allReservations;
+            state.allReservations = payload;
         },
-        changeOneReservationData: (state, action: PayloadAction<IChangeOneReservationData>) => {
+        changeOneReservationData: (state, action: PayloadAction<Reservation>) => {
             const { payload } = action;
-            state.oneReservation = payload.oneReservation;
+            state.oneReservation = payload;
+        }
+    },
+    extraReducers: {
+        ['reservation/getAll/pending']: (state) => {
+            state.isLoading = true;
+        },
+        ['reservation/getAll/fulfilled']: (state) => {
+            state.isLoading = false;
+        },
+        ['reservation/getOne/pending']: (state) => {
+            state.isLoading = true;
+        },
+        ['reservation/getOne/fulfilled']: (state) => {
+            state.isLoading = false;
         }
     }
 });

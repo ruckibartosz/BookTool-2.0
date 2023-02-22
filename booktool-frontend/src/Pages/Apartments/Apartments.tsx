@@ -7,10 +7,40 @@ import ListTilesView from '@Components/ListTilesView';
 import ListTilesViewItem from '@Components/ListTilesView/ListTilesViewItem';
 import ClientApartmentCard from '@Components/ClientApartmentCard';
 import WarningAlert from '@Components/WarningAlert';
-import ClientApartmentFilters from "@Components/ClientApartmentFilters";
+import ClientApartmentFilters from '@Components/ClientApartmentFilters';
+import Loader from '@Components/Loader';
 
 const Apartments: React.FC = () => {
-    const { onConfirmAlertButtonClick } = useApartments();
+    const { allApartments, isLoading, onConfirmAlertButtonClick } = useApartments();
+
+    const renderAllApartmentsCard = () => {
+        return allApartments.map((apartment) => {
+            return (
+                <ListTilesViewItem key={apartment._id}>
+                    <ClientApartmentCard
+                        id={apartment._id}
+                        variant="apartments"
+                        heading={apartment.name}
+                        firstColumnData={String(apartment.houseNumber)}
+                        secondColumnData={String(apartment.adultCost)}
+                    />
+                </ListTilesViewItem>
+            );
+        });
+    };
+
+    const renderContext = () => {
+        if (isLoading) return <Loader />;
+
+        return (
+            <>
+                <PageHeadingCard variant="apartments" lastWeekData={5} lastMonthData={10} />
+                <ClientApartmentFilters />
+                <ListTilesView>{renderAllApartmentsCard()}</ListTilesView>
+            </>
+        );
+    };
+
     return (
         <>
             <WarningAlert
@@ -21,52 +51,7 @@ const Apartments: React.FC = () => {
             >
                 Czy na pewno chcesz usunąć apartament? Tej akcji nie będzie można cofnąć.
             </WarningAlert>
-            <PageContainer>
-                <PageHeadingCard variant="apartments" lastWeekData={5} lastMonthData={10} />
-                <ClientApartmentFilters />
-                <ListTilesView>
-                    <ListTilesViewItem>
-                        <ClientApartmentCard
-                            variant="apartments"
-                            heading="Bartosz Rucki"
-                            firstColumnData="ruckibartosz@gmail.com"
-                            secondColumnData="726766346"
-                        />
-                    </ListTilesViewItem>
-                    <ListTilesViewItem>
-                        <ClientApartmentCard
-                            variant="apartments"
-                            heading="Bartosz Rucki"
-                            firstColumnData="ruckibartosz@gmail.com"
-                            secondColumnData="726766346"
-                        />
-                    </ListTilesViewItem>
-                    <ListTilesViewItem>
-                        <ClientApartmentCard
-                            variant="apartments"
-                            heading="Bartosz Rucki"
-                            firstColumnData="ruckibartosz@gmail.com"
-                            secondColumnData="726766346"
-                        />
-                    </ListTilesViewItem>
-                    <ListTilesViewItem>
-                        <ClientApartmentCard
-                            variant="apartments"
-                            heading="Bartosz Rucki"
-                            firstColumnData="ruckibartosz@gmail.com"
-                            secondColumnData="726766346"
-                        />
-                    </ListTilesViewItem>
-                    <ListTilesViewItem>
-                        <ClientApartmentCard
-                            variant="apartments"
-                            heading="Bartosz Rucki"
-                            firstColumnData="ruckibartosz@gmail.com"
-                            secondColumnData="726766346"
-                        />
-                    </ListTilesViewItem>
-                </ListTilesView>
-            </PageContainer>
+            <PageContainer>{renderContext()}</PageContainer>
         </>
     );
 };

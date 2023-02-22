@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { getOneClient } from '@Actions/client';
 import { openPopup } from '@Actions/popup';
 import useAppSelector from '@Hooks/useAppSelector';
 import useAppDispatch from '@Hooks/useAppDispatch';
@@ -9,7 +10,7 @@ type InputController = {
     id: string;
 };
 
-const useClientApartmentCard = () => {
+const useClientApartmentCard = (id?: string) => {
     const { actionType } = useAppSelector((state) => state.sideContext);
     const { context } = useAppSelector((state) => state.context);
     const dispatch = useAppDispatch();
@@ -28,6 +29,15 @@ const useClientApartmentCard = () => {
         }
     };
 
+    const handleEditButtonClick = async () => {
+        if (id !== undefined) {
+            dispatch(getOneClient(id)).then(() => {
+                dispatch(openPopup({ id: 'client-edit'}))
+            });
+             
+        }
+    };
+
     const handleOnInputClick = (id: string) => {
         setInputController({ isEditing: true, id });
     };
@@ -39,7 +49,8 @@ const useClientApartmentCard = () => {
         inputController,
         handleDeleteButtonClick,
         handleOnInputClick,
-        handleOnInputBlur
+        handleOnInputBlur,
+        handleEditButtonClick
     };
 };
 

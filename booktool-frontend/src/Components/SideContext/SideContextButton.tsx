@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { Button } from '@chakra-ui/react';
 
@@ -6,9 +7,10 @@ interface IProps {
     func?: 'add' | 'edit' | 'delete' | 'tiles' | 'list' | 'none';
     icon: React.ReactElement;
     children: React.ReactNode;
+    onClick?: () => void;
 }
 
-const SideContextButton: React.FC<IProps> = ({ func, icon, children }) => {
+const SideContextButton: React.FC<IProps> = ({ func, icon, children, onClick }) => {
     const {
         handleAddButtonClick,
         handleEditButtonClick,
@@ -17,27 +19,27 @@ const SideContextButton: React.FC<IProps> = ({ func, icon, children }) => {
         handleTilesButtonClick
     } = useSideContext();
 
-    const handleButtonFunction = () => {
-        switch (func) {
-            case 'add':
-                handleAddButtonClick();
-                break;
-            case 'edit':
-                handleEditButtonClick();
-                break;
-            case 'delete':
-                handleDeleteButtonClick();
-                break;
-            case 'list':
-                handleListButtonClick();
-                break;
-            case 'tiles':
-                handleTilesButtonClick();
-                break;
-            default:
-                break;
-        }
-    };
+    // const handleButtonFunction = () => {
+    //     switch (func) {
+    //         case 'add':
+    //             handleAddButtonClick();
+    //             break;
+    //         case 'edit':
+    //             handleEditButtonClick();
+    //             break;
+    //         case 'delete':
+    //             handleDeleteButtonClick();
+    //             break;
+    //         case 'list':
+    //             handleListButtonClick();
+    //             break;
+    //         case 'tiles':
+    //             handleTilesButtonClick();
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    // };
 
     return (
         <Button
@@ -53,7 +55,7 @@ const SideContextButton: React.FC<IProps> = ({ func, icon, children }) => {
             fontSize="16px"
             _hover={{ color: 'primary.second', bgColor: 'primary.firstAlpha10' }}
             _last={{ mb: '0' }}
-            onClick={handleButtonFunction}
+            onClick={onClick}
         >
             {children}
         </Button>
@@ -61,7 +63,8 @@ const SideContextButton: React.FC<IProps> = ({ func, icon, children }) => {
 };
 
 SideContextButton.defaultProps = {
-    func: 'none'
+    func: 'none',
+    onClick: () => {},
 };
 
 export default SideContextButton;
