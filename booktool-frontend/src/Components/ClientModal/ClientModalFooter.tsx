@@ -1,9 +1,11 @@
 import React from 'react';
 import { ModalFooter, HStack, Button } from '@chakra-ui/react';
 
+import useClientModal from './useClientModal';
 
 const ClientModalFooter: React.FC = () => {
-
+    const { handleSaveButtonClick } = useClientModal();
+    
     return (
         <ModalFooter justifyContent="center">
             <HStack spacing="18px">
@@ -16,7 +18,7 @@ const ClientModalFooter: React.FC = () => {
                 >
                     Anuluj
                 </Button>
-                <Button colorScheme="purple" color="white" variant="solid" fontSize="xs" w="120px">
+                <Button onClick={handleSaveButtonClick} colorScheme="purple" color="white" variant="solid" fontSize="xs" w="120px">
                     Zapisz
                 </Button>
             </HStack>

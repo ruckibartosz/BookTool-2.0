@@ -1,12 +1,21 @@
 import React from 'react';
 import { ModalHeader, Text } from '@chakra-ui/react';
 
+import useClientModal from './useClientModal';
+
 const ClientModalHeader: React.FC = () => {
+    const { id, clientId } = useClientModal();
+
+    const renderHeader = () => {
+        if(id === 'client-edit') return "Edytuj klienta";
+        if(id === 'client-create') return "Utwórz klienta";
+    }
+
     return (
         <ModalHeader>
-            Klient
+            {renderHeader()}
             <Text fontWeight="medium" fontSize="xs" color="gray.500" mt="2px">
-                Id: fe308-532fe4
+                 {id === 'client-edit' && `Id: ${clientId}`}
             </Text>
         </ModalHeader>
     );
