@@ -27,6 +27,7 @@
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
+- [Screenshots](#screenshots)
 - [Usage](#usage)
 - [Contributing](#contributing)
   - [Creating A Pull Request](#creating-a-pull-request)
@@ -112,6 +113,13 @@ npm run dev
 ```sh
 npm start
 ```
+
+## Screenshots
+<p align="center">
+  <img src="https://i.imgur.com/cOuUsS9.png" />
+  <img src="https://i.imgur.com/E9AJkq6.png" />
+  <img src="https://i.imgur.com/rWhI59M.png" />
+</p>
 
 ## Usage
 
